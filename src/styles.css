@@ -1,0 +1,110 @@
+.container {
+  height: 100vh; /* altura maxima da pagina em vh para ocupar a tela toda */
+  display: flex; /* display flex para deixar ele editavel */
+  justify-content: center; /*  para alinhar os itens no eixo principal de um container */
+  align-items: center; /* alinhar os items no meio do container */
+  flex-direction: column; /* o direcionamento será em coluna */
+  background: linear-gradient(
+    #121212,
+    #212b46
+  ); /* fundo do site + o linear para meio que mesclar 2 cores */
+}
+
+.title {
+  /*class mane atribuido no app.js para o titulo */
+  font-size: 85px; /* tamanho da fonte */
+  color: #fff; /* cor da fonte do titulo */
+  animation: flipTitle 2s; /* em baixo foi colocado um import de animação key frames para fazer um animação de flip, aqui foi colado o nome dado para a animação e com o tempo de duração 2 segundos*/
+}
+
+@keyframes flipTitle {
+  /* import para animação */
+  from {
+    /* ele vai girar 90 graus e no to vai voltar para zero*/
+    transform: rotateX(90deg);
+  }
+  to {
+    transform: rotateX(0deg);
+  }
+}
+
+.containerInput {
+  background-color: rgba(255, 255, 255, 0.2); /* background do input */
+  padding: 15px; /* padding interno de 15px em todos os lados */
+  margin: 34px 0; /* 34 em cima e em baixo e 0 nas laterais */
+  display: flex; /* flex para ser um do lado do outro */
+  border-radius: 8px; /* borda arredondada */
+  box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5); /*sombra*/
+}
+
+.containerInput input {
+  /*acessar o containerInput com a tag Input */
+  background-color: transparent; /* tirar o background branco do input */
+  border: 0; /* remover a borda quando tiver dentro do input */
+  font-size: 20px; /* fonte dentro do input */
+  color: #fff; /* cor da fonte dentro do input */
+  outline: none; /* borda de linha que fica sobre o input , nesse caso foi para remover */
+  margin-right: 8px; /* separar a digitação do icone de procurar*/
+}
+
+.containerInput input::placeholder {
+  /* para mexer na cor do placehold, colocando o input e acessando com :: */
+  color: #f1f1f1f1;
+}
+
+.buttonSearch {
+  background-color: transparent; /*background do botao, nesse caso foi transparente pra ficar da cor do input*/
+  border: 0; /* borda do botao */
+  display: flex; /* alinhamento flex do botao */
+  justify-content: center; /*centraliza botao */
+  align-items: center; /*deixar itens no meio do botao*/
+  cursor: pointer; /* colocar a seta do mouse apontando quando passar por cima */
+  transition: transform 0.5s; /* animação criada na classe abaixo transform */
+}
+
+.buttonSearch:hover {
+  /* animação para quando passar o mouse por cima */
+  transform: scale(1.2); /* animação é a de dar um pequeno zom no icone */
+}
+
+.main {
+  display: flex; /*centralizar*/
+  justify-content: center; /*centralizar*/
+  align-items: center; /*centralizar*/
+  flex-direction: column; /* ficar um item abaixo do outro */
+  background-color: #fff;
+  width: 500px;
+  border-radius: 5px; /* borda para ficar os spans */
+}
+
+.main h2 {
+  /* edicao do h2 da main */
+  margin: 16px 0; /* margem de 16 pix em cima e baixo pra desgrudar da tela e zero nas laterais  */
+  font-size: 39px;
+}
+
+.main span {
+  margin-bottom: 16px; /* espaçamento de baixo */
+  font-weight: bold; /* deixar negrito */
+}
+
+/*  MUITO IMPORTANTE !!!
+PARA DEIXAR RESPONSIVO USAR MIDIA QUARY, APERTA F12 PRA ABRIR O CONSOLE E VAI DIMUINDO A TELA ATE O PONTO QUE ELA VAI QUEBRAR PARA COLOCAR NO MIDIA 
+NO CASO AQUI FOI 590 PX
+*/
+
+@media (max-width: 590px) {
+  /* coloquei um limitador pra quando chegar em 590px aplicar as acoes abaixo */
+  .title {
+    font-size: 60px; /* diminuir a fonte para 60 px, desse modo ela nao vai quebrar na pagina */
+  }
+
+  .main h2{
+    font-size: 28px; /* o h2 vai dimunuir o tamanho*/
+  }
+
+  .main{
+    width: 80%; /* reduzir 20% da largura do main (quadrado principal) pra nao ficar colada */
+    min-height: 250px; /* a altura minima da main, nesse caso aumenta um pouco o tamanho do quadrado*/
+  }
+}
